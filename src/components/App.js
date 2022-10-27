@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const App = () => {
+  const grid = useSelector((state) => state.game.grid);
+  console.log(grid);
   return (
     <div>
       <h1>Pixelate</h1>
@@ -19,7 +22,15 @@ const App = () => {
           <option value="brown">Brown</option>
         </select>
       </div>
-      <table></table>
+      <table>
+        <tbody>
+          <tr>
+            {grid[0].map((cell, idx) => (
+              <td key={idx}>{cell}</td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

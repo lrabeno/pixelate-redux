@@ -1,9 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 const root = ReactDOM.createRoot(document.getElementById("app"));
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
 
 // const table = document.getElementsByTagName('table')[0]
 // const select = document.getElementsByTagName('select')[0]
